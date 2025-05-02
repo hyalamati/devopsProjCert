@@ -1,0 +1,17 @@
+---
+- name: Provision Test Server
+  hosts: test_servers
+  become: yes
+  tasks:
+    - name: Install Docker
+      apt:
+       name: docker.io
+       state: present
+       update-cache: yes
+
+    - name: Ensure Docker service is running 
+      service:
+       name: docker
+       state: started
+       enabled: yes
+

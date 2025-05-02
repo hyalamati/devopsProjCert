@@ -1,0 +1,13 @@
+---
+- name: Deploy PHP App on server
+  hosts: test_servers
+  become: yes
+  tasks:
+   - name: Pull latest Docker Image
+     shell: docker pull harithayalamati/php-app:latest
+
+   - name: Stop existing contianer(if running)
+     shell: docker rm -f php-app || true
+
+   - name: Run the docker container
+     shell: docker run -d --name php-app -p 8990:80 harithayalamati/php-app:latest
