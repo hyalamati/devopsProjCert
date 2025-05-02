@@ -7,7 +7,7 @@
    - name: Pull latest Docker Image
      shell: docker pull harithayalamati/php-app:latest
 
-   - name: Stop existing contianer(if running)
+   - name: Stop the existing contianer(if running)
      shell: docker rm -f php-app || true
 
    - name: Run the docker container
